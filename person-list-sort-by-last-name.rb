@@ -2,7 +2,7 @@ require 'csv'
 
 persons_list = []
 CSV.foreach("baza_danych.csv") do |person|
-  persons_list<<Person.new(array: person)
+  persons_list<<Person.newPerson.new(first_name: person[0],last_name: person[1])
 end
 
 persons_list=persons_list.sort_by!{ |position| position.last_name}
