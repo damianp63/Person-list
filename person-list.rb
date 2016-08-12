@@ -1,4 +1,5 @@
 require 'csv'
+require_relative 'person.rb'
 
 persons_list = []
 CSV.foreach("baza_danych.csv") do |person|

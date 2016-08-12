@@ -1,4 +1,5 @@
 require 'csv'
+require_relative 'person.rb'
 
 persons_list = []
 CSV.foreach("baza_danych.csv") do |person|
@@ -9,7 +10,7 @@ CSV.foreach("Baza_danych_2.csv") do |person|
  end
 
 CSV.open("baza_danych_3.csv","wb") do |file|
-  persons_list.each do |position|
-    file << [position.first_name,position.last_name]
+  persons_list.each do |person|
+    file << [person.first_name,person.last_name]
   end
 end

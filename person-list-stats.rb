@@ -1,4 +1,6 @@
 require 'csv'
+require_relative 'person.rb'
+
 persons_list = []
 CSV.foreach("baza_danych_3.csv") do |person|
   persons_list<<Person.new(first_name: person[0],last_name: person[1])
