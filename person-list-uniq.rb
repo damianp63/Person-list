@@ -1,11 +1,8 @@
 require 'csv'
 require_relative 'person.rb'
 
-persons_list = []
-CSV.foreach("baza_danych.csv") do |person|
-  persons_list<<Person.new(first_name: person[0],last_name: person[1])
-end
-persons_list=persons_list.uniq{|person| person.last_name}
-persons_list.each do |person|
-  puts person.to_s
-end
+people = Person.load_csv("baza_danych.csv")
+
+people=people.uniq{|person| person.last_name}
+
+puts Person.load_list(people)
