@@ -14,14 +14,14 @@ class Person
   def self.load_csv(file)
     people=[]
     CSV.foreach(file,:headers=>true)do |person|
-      people<<Person.new([[:first_name, person[0]],[:last_name, person[1]]].to_h)
+      people<<Person.new(first_name: person[0],last_name: person[1])
     end
     return people
   end
 
   def self.load_list(people)
     people.map do |person|
-      Person.new([[:first_name, person.first_name],[:last_name, person.last_name]].to_h)
+      Person.new(first_name:person.first_name,last_name: person.last_name)
     end
   end
 end
